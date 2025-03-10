@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request,redirect, url_for
+from flask import Flask, render_template, request,redirect, url_for,session
 
 app = Flask(__name__)
+app.secret_key='123456'
 
 @app.route('/login', methods=['GET'])
 def index():
@@ -19,9 +20,12 @@ def saludo(nombre,edad):
 @app.route('/login', methods=['POST'])
 def login():
    #obtener datos formulario
-    user = request.form['user']
+    username = request.form['username']
     password = request.form['password']
-    if user == 'admin' and password == 'admin':
+    if (username == 'admin' and password == 'admin'):
+        #guardar en sesion
+        session['username'] = username
+        
         return redirect(url_for('admin'))
     else:
     
@@ -29,8 +33,11 @@ def login():
 
 @app.route('/admin', methods=['GET'])
 def admin():
-    return render_template ("admin/admin.html")
-
+    if 'username' in session:
+        return render_template('admin/admin.html')
+    else:
+        return redirect(url_for('login'))
+   
 
 if __name__ == '__main__':
     app.run(debug=True,port=80)
