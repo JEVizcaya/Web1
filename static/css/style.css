@@ -1,3 +1,68 @@
-body{
-    background-color:beige;
+/* Asegura que el body ocupe todo el alto de la pantalla */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilos para el formulario */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 300px; /* Ancho del formulario */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-size: 14px;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #007bff;
+}
+
+form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el mensaje de error */
+h2 {
+    text-align: center;
+    color: red;
+    font-size: 14px;
 }
