@@ -1,0 +1,83 @@
+/* Reseteo global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para el cuerpo de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color:for;  /* Fondo oscuro */
+    color: #f0f0f0;  /* Texto claro */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Título de la página */
+h1 {
+    text-align: center;
+    color: #ffcc00;  /* Amarillo brillante */
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Separador horizontal */
+hr {
+    border: 1px solid #444;
+    margin-bottom: 20px;
+}
+
+/* Estilo para la lista de productos */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #2c2c2c;  /* Fondo de los productos */
+    color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);  /* Sombra suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto de hover para los productos */
+ul li:hover {
+    transform: translateY(-5px);  /* Elevación al pasar el ratón */
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);  /* Sombra más pronunciada */
+}
+
+/* Título de cada producto */
+ul li h2 {
+    font-size: 1.8rem;
+    color: #ffcc00;  /* Color amarillo para el nombre del producto */
+    margin-bottom: 10px;
+}
+
+/* Descripción del producto */
+ul li p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* Precio y stock con más énfasis */
+ul li .price,
+ul li .stock {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Estilo para la lista de productos cuando está vacía */
+ul li:empty {
+    display: none;
+}
+

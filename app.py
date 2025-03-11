@@ -17,10 +17,18 @@ def home():
     try:
         with conexion.cursor() as cursor:
             #creamos la consulta
-            consulta = "SELECT * FROM product" 
+            consulta = "SELECT name, description, stock, price FROM product"
             cursor.execute(consulta)
             resultados = cursor.fetchall()
-            products = [{'name': product[1]} for product in resultados]
+            products = []
+            for row in resultados:
+                product = {
+                    'name': row[0],
+                    'description': row[1],
+                    'stock': row[2],
+                    'price': row[3]
+                }
+                products.append(product)
             return render_template("home.html", products=products)
     except Exception as e:
         print("Ocurrió un error al conectar a la bbdd: ", e)    
