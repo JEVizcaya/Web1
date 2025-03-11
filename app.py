@@ -20,7 +20,8 @@ def home():
             consulta = "SELECT * FROM product" 
             cursor.execute(consulta)
             resultados = cursor.fetchall()
-            return render_template("home.html",products=resultados)
+            products = [{'name': product[1]} for product in resultados]
+            return render_template("home.html", products=products)
     except Exception as e:
         print("Ocurrió un error al conectar a la bbdd: ", e)    
     finally:
