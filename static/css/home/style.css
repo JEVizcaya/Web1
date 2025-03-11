@@ -3,12 +3,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
-/* Estilo para el cuerpo de la página */
+/* Estilo general para el cuerpo */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: cornsilk;  /* Fondo oscuro */
+    background-color: #121212;  /* Fondo oscuro */
     color: #f0f0f0;  /* Texto claro */
     line-height: 1.6;
     padding: 20px;
@@ -18,6 +19,8 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    background-color: cornsilk;
+   
 }
 
 /* Título de la página */
@@ -25,6 +28,7 @@ h1 {
     text-align: center;
     color: #ffcc00;  /* Amarillo brillante */
     font-size: 3rem;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
@@ -34,50 +38,70 @@ hr {
     margin-bottom: 20px;
 }
 
-/* Estilo para la lista de productos */
-ul {
-    list-style-type: none;
-    padding: 0;
+/* Estilo para la fila de productos */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-ul li {
-    background-color: #2c2c2c;  /* Fondo de los productos */
-    color: #f0f0f0;
+/* Estilo para cada producto */
+.row > div {
+    background-color: #2c2c2c;  /* Fondo oscuro para cada producto */
+    color: #f0f0f0;  /* Texto claro */
     padding: 20px;
     border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);  /* Sombra suave */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 300px;  /* Ancho máximo para cada tarjeta de producto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto de hover para los productos */
-ul li:hover {
-    transform: translateY(-5px);  /* Elevación al pasar el ratón */
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);  /* Sombra más pronunciada */
+.row > div:hover {
+    transform: translateY(-5px);  /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.5);  /* Sombra más intensa en hover */
 }
 
-/* Título de cada producto */
-ul li h2 {
-    font-size: 1.8rem;
+/* Títulos de los productos */
+.row > div h5 {
     color: #ffcc00;  /* Color amarillo para el nombre del producto */
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
 /* Descripción del producto */
-ul li p {
+.row > div p {
     font-size: 1rem;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
-/* Precio y stock con más énfasis */
-ul li .price,
-ul li .stock {
+/* Estilo específico para el precio y stock */
+.row > div .price,
+.row > div .stock {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin-top: 10px;
 }
 
-/* Estilo para la lista de productos cuando está vacía */
-ul li:empty {
-    display: none;
+/* Estilo para el precio */
+.row > div .price {
+    color: #ff9900;  /* Color naranja para el precio */
 }
 
+/* Estilo para el stock */
+.row > div .stock {
+    color: #66ff66;  /* Color verde para el stock */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .row > div {
+        max-width: 90%;  /* Ajustar el ancho para pantallas pequeñas */
+    }
+}

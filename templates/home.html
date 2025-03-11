@@ -18,7 +18,11 @@
         <!--Mostramos los productos recibidos en products-->
         <div class="row">
             {% for product in products %}
-            <div>{{product.name}}</div>
+            <div><h5>{{product.name}}</h5>
+                <p>{{product.description}}</p>
+                <p>{{product.price}}</p>
+                <p>{{product.stock}}</p>
+            </div>
             {% endfor %}
         </div>
        
