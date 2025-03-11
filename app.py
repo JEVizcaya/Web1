@@ -13,27 +13,19 @@ def home():
         host='localhost',
         user='root', 
         password='', 
-        db='tiendamvc')
+        db='tiendamvc',
+        cursorclass=pymysql.cursors
+        .DictCursor)
     try:
         with conexion.cursor() as cursor:
-            #creamos la consulta
-            consulta = "SELECT name, description, stock, price FROM product"
-            cursor.execute(consulta)
-            resultados = cursor.fetchall()
-            products = []
-            for row in resultados:
-                product = {
-                    'name': row[0],
-                    'description': row[1],
-                    'stock': row[2],
-                    'price': row[3]
-                }
-                products.append(product)
-            return render_template("home.html", products=products)
-    except Exception as e:
-        print("Ocurrió un error al conectar a la bbdd: ", e)    
-    finally:
-        conexion.close()        
+                consulta = "SELECT * FROM product"
+                cursor.execute(consulta)
+                resultados = cursor.fetchall()
+                return render_template("home.html",products=resultados)
+    except Exception as e:  
+        print("Ocurrió un error al conectar a la bbdd: ", e)
+    finally:    
+        conexion.close()
         print("Conexión cerrada")
 
 @app.route('/login',methods=['GET'])

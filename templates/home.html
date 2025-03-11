@@ -15,20 +15,15 @@
 
         <h1>Tienda</h1>
         <hr>
-        <!--Mostarmos los productos recibidos en products-->
+        <!--Mostramos los productos recibidos en products-->
         <div class="row">
-            <h1>Product List</h1>
-            <ul>
-                {% for product in products %}
-                <li>
-                    <h2>{{product.name}}</h2>
-                    <p>{{product.description}}</p>
-                    <p>{{product.price}}</p>
-                    <p>{{product.stock}}</p>
-                    
-                {% endfor %}
-            </ul>
+            {% for product in products %}
+            <div>{{product.name}}</div>
+            {% endfor %}
+        </div>
+       
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
